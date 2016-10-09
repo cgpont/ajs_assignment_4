@@ -23,12 +23,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   .state('categories', {
     url: '/categories',
     templateUrl: 'src/templates/categories.template.html',
-    // controller: 'CategoriesController as categories',
-    // resolve: {
-    //   items: ['MenuDataService', function (MenuDataService) {
-    //     return MenuDataService.getAllCategories();
-    //   }]
-    // }
+    controller: 'CategoriesController as categoriesList',
+    resolve: {
+      allCategories: ['MenuDataService', function (MenuDataService) {
+        return MenuDataService.getAllCategories();
+      }]
+    }
   })
 
   // Item detail
